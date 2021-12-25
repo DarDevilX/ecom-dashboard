@@ -26,10 +26,11 @@ function AddProducts(){
         })
         console.log(result.status);
         if(result.status === 200){
-            
             return swal.fire('Success','Success adding product!','success')
+        }else if(result.status === 500){
+            return swal.fire('Upss!!','Maximal image size is 2 Mb','error')
         }else{
-            return swal.fire('Upss!!','Error adding product!','error')
+            return swal.fire('Upss!!','Error Not Found','error')
         }
     }
     return(
