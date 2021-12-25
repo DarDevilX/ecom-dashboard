@@ -7,7 +7,7 @@ import Login from './Login';
 import Register from './Register';
 import AddProducts from  './AddProducts';
 import UpdateProducts from './UpdateProducts';
-
+import ProductList from './ProductList';
 
 
 function App() {
@@ -15,12 +15,12 @@ function App() {
     <div className="App">
       <BrowserRouter> 
       <Routes>
-      <Route path="/Login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/add" element={<AddProducts />} />
       <Route path="/update" element={<UpdateProducts />} />
+      <Route path="/" element={<ProductList />}/>
       </Routes>
-
       </BrowserRouter>
     </div>
   );
