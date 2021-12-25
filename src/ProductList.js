@@ -38,7 +38,7 @@ function ProductList(){
                     return swal.fire('Upss!!','Error deleting data','error')
                 }
             } else if(result.isDenied) {
-                swal.fire("Delete Canceled!",'','error');
+                swal.fire("Delete Canceled!",'You canceled deleting data!','error');
             }
           });
     }
