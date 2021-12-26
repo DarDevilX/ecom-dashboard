@@ -1,5 +1,6 @@
 import React, { useState,useEffect} from "react";
 import {Table} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import swal from 'sweetalert2'; // Biar bagus sedikit Bu alertnya
 import Header from './Header'
 
@@ -61,13 +62,18 @@ function ProductList(){
                 </thead>
                 <tbody>
                 {data.map((item)=>
-                        <tr>
+                        <tr key={item.id}>
                             <td style={{display:'none'}}>{item.id}</td>
                             <td>{item.name}</td>
                             <td>{item.price}</td>
                             <td>{item.description}</td>
                             <td><img src={"http://localhost:8000/"+item.file_path} style={{width : '100px'}}/></td>
-                            <td><button className="btn btn-danger" onClick={() => deleteOp(item.id)}>Delete</button></td>
+                            <td>
+                                <button className="btn btn-danger" style={{'marginRight' : '5px'}} onClick={() => deleteOp(item.id)}>Delete</button>
+                                <Link to={`update/${item.id}`}>
+                                <button className="btn btn-success">Update</button>
+                                </Link>
+                            </td>
                         </tr>
                 )}
                 </tbody>
