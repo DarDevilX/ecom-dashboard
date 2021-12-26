@@ -44,7 +44,7 @@ function UpdateProducts(){
         })
         console.log(result.status);
         if(result.status === 200){
-            return swal.fire('Success','Success updating product!','success')
+            return swal.fire('Success','Success updating product!','success').then(Navigate('/'))
         }else{
             
             return swal.fire('Upss!!','Error updating product!','error')

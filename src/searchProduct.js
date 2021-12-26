@@ -81,7 +81,7 @@ function AddProducts(){
                             <td><img src={"http://localhost:8000/"+item.file_path} style={{width : '100px'}}/></td>
                             <td>
                                 <button className="btn btn-danger" style={{'marginRight' : '5px'}} onClick={() => deleteOp(item.id)}>Delete</button>
-                                <Link to={`update/${item.id}`}>
+                                <Link to={`/update/${item.id}`}>
                                 <button className="btn btn-success">Update</button>
                                 </Link>
                             </td>
