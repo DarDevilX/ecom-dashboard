@@ -1,6 +1,7 @@
 import React, { useState,useEffect} from "react";
 import {Table} from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link} from 'react-router-dom';
+import swal from 'sweetalert2';
 import Header from './Header'
 function AddProducts(){
     const [data,setData] = useState("")
@@ -23,6 +24,32 @@ function AddProducts(){
             console.log(result)
             setData(result)
         
+    }
+
+    async function deleteOp(id){
+        console.log(id)
+        swal.fire({
+            title : "Are you sure?",
+            text : "Once deleted, you will not be able to recover this data!",
+            icon : "warning",
+            showDenyButton : true,
+            denyButtonText : "Cancel!"
+          })
+          .then(async (result) => {
+            if (result.isConfirmed) {
+                let result = await fetch('http://localhost:8000/api/delete/'+id,{
+                    method : 'DELETE'
+                })
+                if(result.status === 200){
+                    swal.fire({title : "Poof!",text : "Your data has been deleted!",icon : "success"})
+                    .then(search());
+                }else{
+                    return swal.fire('Upss!!','Error deleting data','error')
+                }
+            } else if(result.isDenied) {
+                swal.fire("Delete Canceled!",'You canceled deleting data!','error');
+            }
+          });
     }
     
     return(
@@ -61,7 +88,7 @@ function AddProducts(){
                         </tr>
                     ):
                     <tr>
-                        <td colSpan={4}>
+                        <td colSpan={5}>
                             <h4 style={{textAlign : 'center'}}>No Data</h4>
                         </td>
                     </tr>
