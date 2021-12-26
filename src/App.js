@@ -8,7 +8,7 @@ import Register from './Register';
 import AddProducts from  './AddProducts';
 import UpdateProducts from './UpdateProducts';
 import ProductList from './ProductList';
-
+import SearchProduct from './searchProduct'
 
 function App() {
   return (
@@ -18,7 +18,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/add" element={<AddProducts />} />
+      <Route path="/update/" element={<UpdateProducts />} />
       <Route path="/update/:id" element={<UpdateProducts />} />
+      <Route path="/search" element={<SearchProduct />} />
       <Route path="/" element={<ProductList />}/>
       </Routes>
       </BrowserRouter>

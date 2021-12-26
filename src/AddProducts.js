@@ -26,8 +26,7 @@ function AddProducts(){
         })
         console.log(result.status);
         if(result.status === 200){
-            
-            return swal.fire('Success','Success adding product!','success')
+            return swal.fire('Success','Success adding product!','success').then(()=>{Navigate('/')})
         }else{
             return swal.fire('Upss!!','Error adding product!','error')
         }
