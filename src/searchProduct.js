@@ -56,9 +56,11 @@ function AddProducts(){
         <div>
         <Header/>
         <h1>Search Products</h1>
-            <div className="col-sm-6 offset-sm-3">
-                <input type="text" onChange={(e)=>search(e.target.value)} name="name" className="form-control" placeholder="Type to search product" style={{marginBottom : '20px'}} />
-                <Table hover bordered >
+        <div className="col-sm-6 offset-sm-3">
+        <input type="text" onChange={(e)=>search(e.target.value)} name="name" className="form-control" placeholder="Type to search product" style={{marginBottom : '20px'}} />
+        </div>
+            <div className="container">
+                <Table hover >
                 <thead>
                     <tr>
                         <th style={{display:'none'}}>Id</th>
